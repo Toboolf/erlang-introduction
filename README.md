@@ -2,11 +2,12 @@
 
 ## Programación Funcional
 
-## Erlang
-
 * changing the value of any variable is strictly forbidden!
 * Functions always returning the same result for the same parameter is called referential transparency
 * purest principles (referential transparency, avoiding mutable data
+ 
+## Erlang
+
 * Erlang uses the actor model,
 * each actor is a separate process in the virtual machine.
 * if you were an actor in Erlang's world, you would be a lonely person, sitting in a dark room with no window, waiting by your mailbox to get a message. 
@@ -77,3 +78,30 @@
 ```
 
 ### Atoms
+
+* constants with their own name for value
+* What you see is what you get
+* The atom cat means "cat" and that's it. You can't play with it, you can't change it, you can't smash it to pieces; it's cat.
+* palabras clave (semtantizar el código)
+* starting with lowercase for single words
+* An atom should be enclosed in single quotes (') if it does not begin with a lower-case letter or if it contains other characters than alphanumeric characters, underscore (_), or @.
+* An atom is therefore mainly useful to express or qualify data coupled with it.
+* an atom is referred to in an "atom table" which consumes memory (4 bytes/atom in a 32-bit system, 8 bytes/atom in a 64-bit system)
+* The atom table is not garbage collected
+* 1048577 atoms were declared.
+* Atoms should be seen as tools for the developer because honestly, it's what they are.
+
+```erlang
+1> atom.
+atom
+2> atoms_rule.
+atoms_rule
+3> atoms_rule@erlang.
+atoms_rule@erlang
+4> 'Atoms can be cheated!'.
+'Atoms can be cheated!'
+5> atom = 'atom'.
+atom
+```
+
+> Note: some atoms are reserved words and can not be used except for what the language designers wanted them to be: function names, operators, expressions, etc. These are: after and andalso band begin bnot bor bsl bsr bxor case catch cond div end fun if let not of or orelse query receive rem try when xor
