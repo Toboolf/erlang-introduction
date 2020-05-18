@@ -1,5 +1,12 @@
 -module(fizzbuzz).
 -export([evaluate_number/1]).
 
-evaluate_number(number) when (number rem 3) =:= 0 and (number rem 5 =:= 0) ->
-  1.
+evaluate_number(Number) when (Number rem 3 =:= 0) and (Number rem 5 =:= 0) ->
+  fizz_buzz;
+
+evaluate_number(Number) when (Number rem 3) =:= 0 ->
+  fizz;
+
+evaluate_number(Number) when (Number rem 5) =:= 0 ->
+  buzz.
+
