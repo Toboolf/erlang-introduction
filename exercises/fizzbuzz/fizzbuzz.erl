@@ -8,5 +8,8 @@ evaluate_number(Number) when (Number rem 3) =:= 0 ->
   fizz;
 
 evaluate_number(Number) when (Number rem 5) =:= 0 ->
-  buzz.
+  buzz;
+
+evaluate_number(Number) ->
+  Number.
 
