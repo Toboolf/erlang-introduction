@@ -4,13 +4,13 @@
 divide_numbers(Dividend, Divisor) when (Divisor > 0) ->
   divide(Dividend, Divisor, 0, 0).
 
-divide(Dividend, Divisor, Sum, Count) when (Sum + Divisor) < Dividend ->
+divide(Dividend, Divisor, Sum, Count) when Sum =< Dividend ->
   io:format("Sum: ~w, Count: ~w~n", [Sum, Count]),
   divide(Dividend, Divisor, Sum + Divisor, Count + 1);
 
-divide(Dividend, _Divisor, Sum, Count) ->
+divide(Dividend, Divisor, Sum, Count) ->
   io:format("Final Sum: ~w, Count: ~w~n", [Sum, Count]),
-  {Count, Dividend - Sum}.
+  {Count - 1, (Dividend - Sum) + Divisor}.
 
 %% 10 / 5
 %% c = 1, 5 > 10 si
