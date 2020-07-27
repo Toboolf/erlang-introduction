@@ -42,6 +42,25 @@
 % t2 = []
 % t3 = [1,2,3]
 
-Torre_1 = [1,2,3].
-Torre_2 = [].
-Torre_3 = [].
+% Torre_1 = [1,2,3].
+% Torre_2 = [].
+% Torre_3 = [].
+
+move_disk_tower1([H|T], Tower) ->
+  {T--[H], [H|Tower]}.
+
+next_move({[H1 | T1], [H2 | []], [H3|[]]}) when H3 > H2 ->
+  {[H1|T1], [], [H2|[H3]]};
+
+next_move({[H1 | T1], [], []}) ->
+  {T1--[H1], [H1], []};
+
+next_move({[H1 | T1], [H2 | []], []}) ->
+  {T1--[H1], [H2], [H1]}.
+
+
+do_hanoi() ->
+  1.
+
+
+
