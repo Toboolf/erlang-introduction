@@ -47,7 +47,7 @@
 420
 4> 5 / 2.
 2.5
-5> 5 div 2.
+5> 5 div 2. %% integer division
 2
 6> 5 rem 2.
 1
@@ -105,3 +105,56 @@ atom
 ```
 
 > Note: some atoms are reserved words and can not be used except for what the language designers wanted them to be: function names, operators, expressions, etc. These are: after and andalso band begin bnot bor bsl bsr bxor case catch cond div end fun if let not of or orelse query receive rem try when xor
+
+### Tuplas
+
+* Agrupar datos cuando sabes cuántos son
+* `{Elemento1, Elemento2, ..., ElementoN}`
+
+Ejemplo: coordenadas de un plano bidimensional
+
+```erlang
+X = 1, Y = 2.
+Coordenada = {X, Y}.
+```
+
+* Una variable (ej. `Coordenada`) puede contener a muchas otras.
+
+Obtener datos de una tupla:
+
+```erlang
+{A, _} = Coordenada.
+A = 1. % Ok
+
+{_, _} = {1, 2}. % Ok
+{_, _} = {1, 2, 3}. % ** exception error: no match of right hand side value {1,2,3}
+```
+
+Dar contexto a nuestros datos:
+
+```erlang
+Temperatura_mexico = {celsius, 27.5}.
+Temperatura_us = {kelvin, 88.2}.
+
+{kelvin, Grados} = Temperatura_mexico.
+% ** exception error: no match of right hand side value {celsius,23.213}
+```
+
+La tupla puede contener cualquier elemento de cualquier tipo:
+
+```erlang
+{temperatura_local, {celsius, 28.4}}.
+```
+
+### Listas
+
+* Las listas son la uña y mugre de los lenguajes funcionales.
+* Pueden contener **¡lo que sea!**, números, átomos, tuplas, otras listas, etc.
+* De la forma: `[Elemento1, Elemento2, ..., ElementoN]`
+
+Añadir listas y eliminar elementos: 
+
+```erlang
+[1, 2, 3] ++ [4, 5].
+% [1, 2, 3, 4, 5]
+```
