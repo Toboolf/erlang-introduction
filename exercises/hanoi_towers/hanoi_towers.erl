@@ -62,7 +62,13 @@ next_move({[H1 | []], [], [H3 | T3]}) ->
   {[], [H1], [H3 | T3]};
 
 next_move({[], [H2], [H3 | T3]}) ->
-  {[H3], [H2], T3}.
+  {[H3], [H2], T3};
+
+next_move({[H1 | []], [H2 | []], [H3| []]}) when H2 > H3 ->
+  {[H1], [H3 | [H2]], []};
+
+next_move({[H1], [H2 | T2], []}) when H2 > H1 ->
+  {[], [H1 | [H2 | T2]], []}.
 
 % next move last disk 3, to another tower -> [], [3], [1,2]
 
