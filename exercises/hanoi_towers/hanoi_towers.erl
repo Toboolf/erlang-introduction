@@ -58,6 +58,7 @@ next_move({[H1 | T1], [], []}) ->
 next_move({[H1 | T1], [H2 | []], []}) ->
   {T1--[H1], [H2], [H1]}.
 
+% next move last disk 3, to another tower -> [3], [], [1,2]
 
 do_hanoi() ->
   1.
