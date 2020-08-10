@@ -75,5 +75,5 @@ next_move({[H1], [H2 | T2], []}) when H2 > H1 ->
 do_hanoi() ->
   1.
 
-
+% 2^n - 1
 
